@@ -1,0 +1,67 @@
+To run,
+$ make
+$ ./main -b <cache line size> -s <cache size> -a <Associativity> < <pinatrace.out file>
+
+Results:
+
+For a 128*128 matrix:
+
+    Normal Multiplication:
+
+        no_name@NoEntry:~/CSD/cache_files$ ./main 32 1024 8 <pinatrace_mult.out 
+        Number of sets is: 4
+        Total Misses: 2590367
+        Conflict Miss Rate: 0.0372512
+        no_name@NoEntry:~/CSD/cache_files$ ./main 32 2048 8 <pinatrace_mult.out 
+        Number of sets is: 8
+        Total Misses: 2437832
+        Conflict Miss Rate: 0.0350413
+        no_name@NoEntry:~/CSD/cache_files$ ./main 64 1024 8 <pinatrace_mult.out 
+        Number of sets is: 2
+        Total Misses: 3420967
+        Conflict Miss Rate: 0.049408
+        no_name@NoEntry:~/CSD/cache_files$ ./main 32 1024 16 <pinatrace_mult.out 
+        Number of sets is: 2
+        Total Misses: 2546301
+        Conflict Miss Rate: 0.0366127
+    
+    Block Multiplication:
+    
+        Blocks of size 16*16:
+        
+            no_name@NoEntry:~/CSD/cache_files$ ./main 32 1024 8 <pinatrace_block_mult.out 
+            Number of sets is: 4
+            Total Misses: 2313537
+            Conflict Miss Rate: 0.0220144
+            no_name@NoEntry:~/CSD/cache_files$ ./main 32 2048 8 <pinatrace_block_mult.out 
+            Number of sets is: 8
+            Total Misses: 376738
+            Conflict Miss Rate: 0.00343063
+            no_name@NoEntry:~/CSD/cache_files$ ./main 64 1024 8 <pinatrace_block_mult.out 
+            Number of sets is: 2
+            Total Misses: 2306596
+            Conflict Miss Rate: 0.0220294
+            no_name@NoEntry:~/CSD/cache_files$ ./main 32 1024 16 <pinatrace_block_mult.out 
+            Number of sets is: 2
+            Total Misses: 2506182
+            Conflict Miss Rate: 0.0238628
+            
+        Blocks of size 32*32:
+        
+            no_name@NoEntry:~/CSD/cache_files$ ./main 32 1024 8 <pinatrace_32_block_size.out
+            Number of sets is: 4
+            Total Misses: 2536319
+            Conflict Miss Rate: 0.0243924
+            no_name@NoEntry:~/CSD/cache_files$ ./main 32 2048 8 <pinatrace_32_block_size.out 
+            Number of sets is: 8
+            Total Misses: 1173890
+            Conflict Miss Rate: 0.0111897
+            no_name@NoEntry:~/CSD/cache_files$ ./main 64 1024 8 <pinatrace_32_block_size.out 
+            Number of sets is: 2
+            Total Misses: 2352451
+            Conflict Miss Rate: 0.022693
+            no_name@NoEntry:~/CSD/cache_files$ ./main 32 1024 16 <pinatrace_32_block_size.out
+            Number of sets is: 2
+            Total Misses: 2372070
+            Conflict Miss Rate: 0.0228008
+

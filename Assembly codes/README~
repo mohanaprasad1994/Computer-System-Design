@@ -1,0 +1,7 @@
+1) Ackermann Function in assembly
+2) Assembly code to copy text files.
+To compile and Run:
+
+$ nasm -felf 1.asm
+$ ld -m elf_i386 -s -o q1 1.o
+$ ./q1
