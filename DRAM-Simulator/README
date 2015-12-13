@@ -1,0 +1,25 @@
+The objective of this project is to understand the scheduling policies in DRAM. 
+DRAMSim simulator is used. (https://github.com/dramninjasUMD/DRAMSim2)
+1)Implement Read over Write scheduling in the Transaction Queue (TQ). High and 
+low watermarks are 24, 6 respectively. Compare the average read latency with 
+FR-FCFS scheduling with and without Read over Write scheduling in TQ for both
+open page and close page policies. 
+2)Implement a new command scheduling algorithm and compare the average read 
+latency with FR-FCFS for both open page and close page policy. Read over 
+Write should be enabled in TQ.
+
+YOu can find the files that need to be changed here.
+
+ 
+Instructions to run:
+$ make
+$ ./DRAMSim -t <path to trace file> -s system_param.ini -d ini/DDR3_micron_32M_8B_x4_sg125.ini -c 4500000 -S 8192
+
+
+Optimizations that have been considered:
+
+1) Multiple reads to same address.
+2) RAW consistency.
+3) Command queue schedules in random order than round robin.
+4) Commands to the same row are brought together in Open page policy.
+
