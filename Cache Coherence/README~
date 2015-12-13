@@ -1,0 +1,2 @@
+This code implements a MSI cache coherency protocol for a 2 core processor.
+Parameters within the code can be changed to accomodate more number of cores. And you can switch it to use MESI protocol.
