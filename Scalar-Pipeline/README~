@@ -1,1 +1,8 @@
 This code implements a scalar 6 stage pipeline for a RISC ISA.
+
+To run, 
+$ make
+$ ./main <input_code_file> <data_file>
+
+
+We have a GUI support for showing the results.
